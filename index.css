@@ -1,4 +1,25 @@
 h1 {
     text-align: center;
-    font-size: 35px;
+    font-size: 55px;
+}
+
+form {
+    display: block;
+    text-align: center;
+    position: absolute;
+    left: 42.5%;
+    top: 150px;
+}
+
+button{
+    min-height: 30px;
+    min-width: 30px;
+    background-color: red;
+    font-size: 1em;
+    padding: .27em .27em;
+}
+
+button:hover {
+    background-color: white;
+    cursor: pointer;
 }
