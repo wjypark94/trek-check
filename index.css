@@ -23,3 +23,11 @@ button:hover {
     background-color: white;
     cursor: pointer;
 }
+
+body {
+    background-image: url("http://corporate.greenland.com/media/5803/adventure-corporate-02.jpg?width=1920&height=1280&mode=crop&format=jpg&quality=95");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
