@@ -10,21 +10,30 @@
      <link rel="stylesheet" href="index.css" type="text/css">
     </head>
     <body>
-    <section role="main">
-    <h1>TrekCheck</h1>
+    <main role="main">
+        <div class="start-display" id="start-page">
+            <header class="row" role="banner">
+                <h1 class="logo">TrekCheck</h1>
+            </header>
 
-    <form action="#" class="js-search-form">
-        <label>
-            <input type="text" class="js-query" placeholder="City..">
-            <button type="submit" id="js-search-button">Search</button>
-        </label>
-    </form>
+            <form action="#" class="search-form row" id="search-query-form">
+                <input type="text" placeholder="Enter a city" class="search-query" id="search-term" required>
+                <button type="submit" class="submit-button">Search</button>
+            </form>
+        </div>
 
-    <h2>Results</h2>
-    <div class="js-search-results">
-    </div>
 
-    </section>
+     <section class="weather row" id="weather-display">
+
+      </section>
+
+<section id="foursquare-results" class="row">
+
+</section>
+
+
+   
+</main>
       <script src="index.js"></script>
     </body>
 </html>
