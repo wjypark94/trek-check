@@ -45,7 +45,7 @@ function getDataFromFourApi() {
 
 function displayResults(result) {
 
-    console.log(result.venue)
+    console.log(result.venue.location.formattedAddress[0])
     return `
         <div class="result col-3">
             <div class="result-image" style="background-image: url(https://igx.4sqi.net/img/general/width960${result.venue.photos.groups[0].items[0].suffix})" ;>

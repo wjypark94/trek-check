@@ -1,9 +1,12 @@
+* {
+    box-sizing: border-box;
+}
 
 body {
     font-family: 'Roboto', sans-serif;
-    text-align: center;
     margin: 0px;
     padding: 0px;
+    text-align: center;
 }
 
 .hide {
@@ -20,9 +23,68 @@ form {
 }
 
 form input {
-    height: 15px;
     width: 150px;
     border-radius: 3px;
+    height: 15px;
 }
 
+div .result-image {
+    width: 100%;
+    float: left;
+    height: 15em;
+    background-size: cover;
+    background-position: center center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
 
+.col-3,
+.result {
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    background: rgba(230, 223, 223, 0.7);
+    width: 100%;
+}
+
+.result-description {
+    padding: 10px;
+    overflow: hidden;
+    font-size: 0.9em;
+    text-align: justify;
+}
+
+.result-description h2 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 1.3em;
+    ;
+}
+
+#foursquare-results span {
+    display: inline-block;
+    border-radius: 5px;
+    vertical-align: top;
+    height: 32px;
+    background-color: #ccc;
+    padding: 0;
+}
+
+#foursquare-results span.icon-text {
+    padding: 8px 4px 0 4px;
+}
+
+.row {
+    padding-left: 20px;
+    margin: 0 auto;
+    padding-right: 20px;
+    max-width: 1000px;
+}
+
+@media screen and (min-width: 640px) {
+    .col-3 {
+        display: inline-block;
+        width: 30%;
+        vertical-align: text-top;
+    }
+}
