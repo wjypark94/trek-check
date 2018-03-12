@@ -40,6 +40,9 @@ function displayWeather(data) {
     <p style="font-size: 30px; margin-top: 10px;">${data.weather[0].main}</p>
     <p style="color: steelblue;"> Description:</p><p">${data.weather[0].description}</p>
     <p style="color: steelblue;"> Temperature:</p><p>${data.main.temp} &#8457; / ${(((data.main.temp)-32)*(5/9)).toFixed(2)} &#8451;</p>
+    <p style="color:steelblue;"> Min. Temperature:</p><p> ${data.main.temp_min} &#8457; / ${(((data.main.temp_min)-32)*(5/9)).toFixed(2)} &#8451</p>
+    <p style="color:steelblue;"> Max. Temperature:</p><p> ${data.main.temp_max} &#8457; / ${(((data.main.temp_max)-32)*(5/9)).toFixed(2)} &#8451</p>
+    <p style="color:steelblue;"> Humidity:</p><p> ${data.main.humidity} &#37;</p>
     </div>
     `;
 }
