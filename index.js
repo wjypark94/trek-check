@@ -51,6 +51,7 @@ function displayWeather(data) {
 
 //retrieve data from FourSquare API
 function getDataFromFourApi() {
+    $('.category-button').click(function(){
         let city = $('.search-query').val();
         let category = $(this).text();
         $.ajax(FOURSQUARE_SEARCH_URL, {
@@ -78,6 +79,7 @@ function getDataFromFourApi() {
             }
         });
         console.log(category);
+    });
   
 }
 

@@ -7,26 +7,115 @@ body {
     margin: 0px;
     padding: 0px;
     text-align: center;
+    background-image: url("https://1.bp.blogspot.com/-8CMKL-Sxx14/WSHEX0U7pYI/AAAAAAAAUpk/SGnBJ4y2SkUUAC8hyMPoXnetok4Jf41jACLcB/s640/mentally-strong-people.jpg");
+    background-size: cover;
 }
 
 .hide {
     display: none;
 }
 
+/*start display*/
+
 .start-display {
     padding-top: 100px;
     margin-bottom: 45px;
+    
+
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 10px;
+    width: 80%
+}
+
+h1.logo {
+    font-family: 'Shadows Into Light', sans-serif;
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+strong {
+    font-family: 'Homenaje';
+}
+
+p {
+    font-family: 'Homenaje';
 }
 
 form {
-    padding: 10px;
+    padding: 30px;
 }
 
 form input {
-    width: 150px;
-    border-radius: 3px;
-    height: 15px;
+    height: 50px;
+    width: 250px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0px;
 }
+form button {
+    height: 50px;
+    width: 100px;
+    background: #eee;
+    border: 0px;
+    border-radius: 5px;
+    margin-left: 10px;
+    box-shadow: 0 0 5px black;
+    font-size: 21px;
+}
+
+form a {
+    color: black;
+    text-decoration: none;
+}
+
+
+
+/*weather display*/
+.weather-results {
+    text-align: center;
+    padding: 10px;
+    margin: 30px 0;
+}
+
+.weather-results h1 {
+    font-size: 40px;
+    color: black;
+    font-family: 'Megrim', sans-serif;
+}
+
+.weather-results {
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
+    background: rgba(230, 223, 223, 0.7);
+    border-radius: 5px;
+}
+
+/*navigation*/
+
+nav {
+    margin: 20px 0;
+}
+
+button.category-button {
+    margin: 5px;
+    padding: 10px;
+    background: #fff;
+    border: 0px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+
+
+
+/*result display */
 
 div .result-image {
     width: 100%;
@@ -73,6 +162,8 @@ div .result-image {
 #foursquare-results span.icon-text {
     padding: 8px 4px 0 4px;
 }
+
+/*responsive design*/
 
 .row {
     padding-left: 20px;
