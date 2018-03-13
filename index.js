@@ -58,7 +58,7 @@ function getDataFromFourApi() {
             data: {
                 near: city,
                 venuePhotos: 1,
-                limit: 20,
+                limit: 15,
                 query: 'trail',
             },
             dataType: 'json',
@@ -77,8 +77,10 @@ function getDataFromFourApi() {
             error: function () {
                 $('#foursquare-results').html("<div class='result'><p>Sorry! No Results Found.</p></div>");
             }
+
+           
         });
-        console.log(category);
+        //console.log(category);
     });
   
 }
@@ -131,6 +133,17 @@ function activatePlacesSearch() {
     };
     let input = document.getElementById('search-term');
     let autocomplete = new google.maps.places.Autocomplete(input, options);
+}
+
+//google map function in progress
+
+function myMap() {
+    var mapCanvas = document.getElementById("map");
+    var mapOptions = {
+        center: new google.maps.LatLng(51.5, -0.2),
+        zoom: 10
+    };
+    var map = new google.maps.Map(mapCanvas, mapOptions);
 }
 
 
