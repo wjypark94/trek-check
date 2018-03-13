@@ -30,7 +30,7 @@ function getDataFromWeatherApi(){
 }
 
 function displayWeather(data) {
-    console.log(data);
+    //console.log(data);
     //#8457 html symbol for fahrenheit
     //#8451 html symbol for celcius
     return `
@@ -85,6 +85,7 @@ function getDataFromFourApi() {
 
 function displayResults(result) {
 //console.log(result.venue.location.formattedAddress[0])
+console.log(result);
     return `
         <div class="result col-3">
             <div class="result-image" style="background-image: url(https://igx.4sqi.net/img/general/width960${result.venue.photos.groups[0].items[0].suffix})" ;>

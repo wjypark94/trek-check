@@ -9,6 +9,8 @@ body {
     text-align: center;
     background-image: url("https://1.bp.blogspot.com/-8CMKL-Sxx14/WSHEX0U7pYI/AAAAAAAAUpk/SGnBJ4y2SkUUAC8hyMPoXnetok4Jf41jACLcB/s640/mentally-strong-people.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .hide {
@@ -179,3 +181,11 @@ div .result-image {
         vertical-align: text-top;
     }
 }
+
+
+@media screen and (min-width: 50px) {
+    form button {
+        margin-top: 15px;
+    }
+}
+
