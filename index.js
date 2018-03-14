@@ -1,5 +1,7 @@
 const FOURSQUARE_SEARCH_URL = "https://api.foursquare.com/v2/venues/explore?&client_id=FPRD2S2RFIB4QLBNBBHNAMLYOUF2AZSZ21ZK53QYASWCRJ1Z&client_secret=FEFA44EG0YDZ0XKA1UWX5ZWLZJLE30E2GYRLGB44PKE5KZ0E&v=20170915"
 const WEATHER_SEARCH_URL = "https://api.openweathermap.org/data/2.5/weather?id=524901&APPID=a2d9429fad39b9f998a23d74c41056cc"
+var hikingPlacesArray = [];
+
 //press on submit button and scroll to results
 function scrollPageTo(myTarget, topPadding) {
     if (topPadding == undefined) {
@@ -48,10 +50,9 @@ function displayWeather(data) {
 }
 
 
-
 //retrieve data from FourSquare API
 function getDataFromFourApi() {
-    $('.category-button').click(function(){
+    $('#hike-button').click(function(){
         let city = $('.search-query').val();
         let category = $(this).text();
         $.ajax(FOURSQUARE_SEARCH_URL, {
@@ -65,12 +66,17 @@ function getDataFromFourApi() {
             type: 'GET',
             success: function (data) {
                 try {
+                    //console.log(data);
                     let results = data.response.groups[0].items.map(function (item, index) {
+                        console.log(item);
+                        hikingPlacesArray.push([item.venue.location.lng, item.venue.location.lat]);
+                        console.log(hikingPlacesArray);
                         return displayResults(item);
                     });
                     $('#foursquare-results').html(results);
                     scrollPageTo('#foursquare-results', 15);
                 } catch (e) {
+                    console.log(e);
                     $('#foursquare-results').html("<div class='result'><p>Sorry! No Results Found.</p></div>");
                 }
             },
@@ -87,25 +93,27 @@ function getDataFromFourApi() {
 
 function displayResults(result) {
 //console.log(result.venue.location.formattedAddress[0])
-console.log(result);
-    return `
-        <div class="result col-3">
-            <div class="result-image" style="background-image: url(https://igx.4sqi.net/img/general/width960${result.venue.photos.groups[0].items[0].suffix})" ;>
+//console.log(result);
+    if (result.venue.photos.groups.length > 0){
+        return `
+            <div class="result col-3">
+                <div class="result-image" style="background-image: url(https://igx.4sqi.net/img/general/width960${result.venue.photos.groups[0].items[0].suffix})" ;>
+                </div>
+                <div class="result-description">
+                    <h2 class="result-name"><a href="${result.venue.url}" target="_blank">${result.venue.name}</a></h2>
+                    <span class="icon">
+                        <img src="${result.venue.categories[0].icon.prefix}bg_32${result.venue.categories[0].icon.suffix}" alt="category-icon">
+                    </span>
+                    <span class="icon-text">
+                        ${result.venue.categories[0].name}
+                    </span>
+                    <p class="result-address">${result.venue.location.formattedAddress[0]}</p>
+                    <p class="result-address">${result.venue.location.formattedAddress[1]}</p>
+                    <p class="result-address">${result.venue.location.formattedAddress[2]}</p>
+                </div>
             </div>
-            <div class="result-description">
-                <h2 class="result-name"><a href="${result.venue.url}" target="_blank">${result.venue.name}</a></h2>
-                <span class="icon">
-                    <img src="${result.venue.categories[0].icon.prefix}bg_32${result.venue.categories[0].icon.suffix}" alt="category-icon">
-                </span>
-                <span class="icon-text">
-                    ${result.venue.categories[0].name}
-                </span>
-                <p class="result-address">${result.venue.location.formattedAddress[0]}</p>
-                <p class="result-address">${result.venue.location.formattedAddress[1]}</p>
-                <p class="result-address">${result.venue.location.formattedAddress[2]}</p>
-            </div>
-        </div>
-`;
+        `;
+    } 
 }
 
 
@@ -137,14 +145,36 @@ function activatePlacesSearch() {
 
 //google map function in progress
 
-function myMap() {
-    var mapCanvas = document.getElementById("map");
-    var mapOptions = {
-        center: new google.maps.LatLng(51.5, -0.2),
-        zoom: 10
-    };
-    var map = new google.maps.Map(mapCanvas, mapOptions);
+
+function initMap(){
+    $('#map-button').click(function(){
+        $('#map').css("height", "400px");
+        var mapCanvas = document.getElementById("map");
+        var mapOptions = {
+            center: new google.maps.LatLng(hikingPlacesArray[0][1], hikingPlacesArray[0][0]),
+            zoom: 10
+        };
+        var map = new google.maps.Map(mapCanvas, mapOptions);
+        scrollPageTo('#map', 15)
+        //console.log(map);
+        console.log(hikingPlacesArray);
+        for (i = 0; i < hikingPlacesArray.length; i++) {  
+			position = new google.maps.LatLng(hikingPlacesArray[i][1], hikingPlacesArray[i][0]);
+		    marker = new google.maps.Marker({
+		        position: position,
+		        map: map
+		    });
+        }
+    });
 }
+
+
+
+function googleMapFunction(){
+    activatePlacesSearch();
+    initMap();
+}
+
 
 
 $(searchLocation);
