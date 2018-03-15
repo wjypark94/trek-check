@@ -19,7 +19,7 @@ body {
     display: none;
 }
 
-/*start display*/
+/*** start display ***/
 
 .start-display {
     padding-top: 100px;
@@ -28,7 +28,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    padding-top: 200px;
+    padding-top: 160px;
     margin-bottom: 45px;
 
 }
@@ -56,7 +56,7 @@ p {
 
 form {
     padding: 30px;
-    padding-bottom: 200px;
+    padding-bottom: 250px;
 }
 
 form input {
@@ -85,7 +85,7 @@ form a {
 
 
 
-/*weather display*/
+/*** weather result display ***/
 .weather-results {
     text-align: center;
     padding: 10px;
@@ -106,7 +106,7 @@ form a {
     border-radius: 5px;
 }
 
-/*navigation*/
+/*** navigation ****/
 
 nav {
     margin: 20px 0;
@@ -126,7 +126,7 @@ button.category-button {
 
 
 
-/*result display */
+/*** hike result display ***/
 
 div .result-image {
     width: 100%;
@@ -174,8 +174,13 @@ div .result-image {
     padding: 8px 4px 0 4px;
 }
 
+.hike-directions {
+    font-family: 'BenchNine';
+    font-size: 1.3em;
+}
 
-/*responsive design*/
+
+/*** responsive design ***/
 
 .row {
     padding-left: 20px;
@@ -199,7 +204,7 @@ div .result-image {
     }
 }
 
-/*****FOOTER *****/
+/***** FOOTER *****/
 
 footer {
     background-color: rgba(255, 255, 255, 0.7);

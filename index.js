@@ -106,7 +106,7 @@ function displayResults(result) {
                     <p class="result-address">${result.venue.location.formattedAddress[0]}</p>
                     <p class="result-address">${result.venue.location.formattedAddress[1]}</p>
                     <p class="result-address">${result.venue.location.formattedAddress[2]}</p>
-                    <a href="${hikeLink}" target="_blank">Get Directions</a></p>
+                    <a class="hike-directions" href="${hikeLink}" target="_blank">Get Directions</a>
                 </div>
             </div>
         `;
@@ -115,11 +115,6 @@ function displayResults(result) {
 
 
 function searchLocation() {
-    $('.category-button').click(function () {
-        $('button').removeClass("selected");
-        $(this).addClass("selected");
-    });
-
     $('.search-form').submit(function (event) {
         event.preventDefault();
         $('.navigation').removeClass("hide");
