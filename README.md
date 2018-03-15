@@ -18,10 +18,10 @@ Bottom Page
 <img src="readme-images/trek-check-5-bottom.png">
 
 ## Technical
-The app was built using HTML5, CSS, JavaScript, and jQuery.
-The app is fully responsive.
+The app was built using HTML5, CSS, JavaScript, and jQuery. </br>
+The app is fully responsive. </br>
 The app pulls data from multiple third party APIs such as OpenWeatherMap, FourSquare, and GoogleMaps.
 
 ## Live Demo
-You can find the live demo of TrekCheck at:
+You can find the live demo of TrekCheck at:</br>
 https://wjypark94.github.io/trek-check/
