@@ -1,6 +1,5 @@
 const FOURSQUARE_SEARCH_URL = "https://api.foursquare.com/v2/venues/explore?&client_id=FPRD2S2RFIB4QLBNBBHNAMLYOUF2AZSZ21ZK53QYASWCRJ1Z&client_secret=FEFA44EG0YDZ0XKA1UWX5ZWLZJLE30E2GYRLGB44PKE5KZ0E&v=20170915"
 const WEATHER_SEARCH_URL = "https://api.openweathermap.org/data/2.5/weather?id=524901&APPID=a2d9429fad39b9f998a23d74c41056cc"
-var hikingPlacesArray = [];
 
 //press on submit button and scroll to results
 function scrollPageTo(myTarget, topPadding) {
@@ -68,8 +67,6 @@ function getDataFromFourApi() {
                     //console.log(data);
                     let results = data.response.groups[0].items.map(function (item, index) {
                         console.log(item);
-                        hikingPlacesArray.push([item.venue.location.lng, item.venue.location.lat]);
-                        console.log(hikingPlacesArray);
                         return displayResults(item);
                     });
                     $('#foursquare-results').html(results);
@@ -81,8 +78,7 @@ function getDataFromFourApi() {
             error: function () {
                 $('#foursquare-results').html("<div class='result'><p>Sorry! No Results Found.</p></div>");
             }
-        });
-        //console.log(category);  
+        });  
 }
 
 function displayResults(result) {
@@ -133,39 +129,6 @@ function activatePlacesSearch() {
     };
     let input = document.getElementById('search-term');
     let autocomplete = new google.maps.places.Autocomplete(input, options);
-}
-
-//google map function in progress
-
-
-function initMap(){
-    $('#map-button').click(function(){
-        $('#map').css("height", "400px");
-        $('#foursquare-results').css("display", "none");
-        var mapCanvas = document.getElementById("map");
-        var mapOptions = {
-            center: new google.maps.LatLng(hikingPlacesArray[0][1], hikingPlacesArray[0][0]),
-            zoom: 10
-        };
-        var map = new google.maps.Map(mapCanvas, mapOptions);
-        scrollPageTo('#map', 15)
-        //console.log(map);
-        console.log(hikingPlacesArray);
-        for (i = 0; i < hikingPlacesArray.length; i++) {  
-			position = new google.maps.LatLng(hikingPlacesArray[i][1], hikingPlacesArray[i][0]);
-		    marker = new google.maps.Marker({
-		        position: position,
-		        map: map
-		    });
-        }
-    });
-}
-
-
-
-function googleMapFunction(){
-    activatePlacesSearch();
-    initMap();
 }
 
 

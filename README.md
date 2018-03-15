@@ -5,7 +5,7 @@ A responsive web application that pulls data from multiple third party APIS such
 ## Screenshots
 Start Display Page
 <img src="readme-images/trek-check-1-start.png">
-Search Page
+Search City Page
 <img src="readme-images/trek-check-2-search.png">
 Weather Results Page
 <img src="readme-images/trek-check-3-weather.png">
