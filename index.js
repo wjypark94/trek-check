@@ -37,7 +37,7 @@ function displayWeather(data) {
     return `
     <div class="weather-results">
     <h1><strong>Current Weather for ${data.name}</strong></h1>
-    <img src="https://openweathermap.org/img/w/${data.weather[0].icon}.png">
+    <img src="https://openweathermap.org/img/w/${data.weather[0].icon}.png" alt="weather icon">
     <p style="font-size: 30px; margin-top: 10px;">${data.weather[0].main}</p>
     <p style="color: steelblue;"> Description:</p><p">${data.weather[0].description}</p>
     <p style="color: steelblue;"> Temperature:</p><p>${data.main.temp} &#8457; / ${(((data.main.temp)-32)*(5/9)).toFixed(2)} &#8451;</p>
