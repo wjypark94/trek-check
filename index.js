@@ -48,7 +48,6 @@ function displayWeather(data) {
     `;
 }
 
-
 //retrieve data from FourSquare API
 function getDataFromFourApi() {
         let city = $('.search-query').val();
@@ -57,7 +56,7 @@ function getDataFromFourApi() {
             data: {
                 near: city,
                 venuePhotos: 1,
-                limit: 21,
+                limit: 15,
                 query: 'trail',
             },
             dataType: 'json',
@@ -66,7 +65,7 @@ function getDataFromFourApi() {
                 try {
                     //console.log(data);
                     let results = data.response.groups[0].items.map(function (item, index) {
-                        console.log(item);
+                        //console.log(item);
                         return displayResults(item);
                     });
                     $('#foursquare-results').html(results);
@@ -81,18 +80,43 @@ function getDataFromFourApi() {
         });  
 }
 
+//display the results passing the data from ajax call
+
 function displayResults(result) {
 //console.log(result.venue.location.formattedAddress[0])
-//console.log(result);
+console.log(result);
     let hikeLocation = result.venue.name;
     let hikeLink = `https://www.google.com/maps/search/${hikeLocation} + ${result.venue.location.formattedAddress[1]}`;
-    if (result.venue.photos.groups.length > 0){
+    const FOURSQUARE_PHOTO_URL = "https://api.foursquare.com/v2/venues/" + result.venue.id + "/photos?&client_id=AAX334AWRMDG2K3UNKXSXT5REBQZH3EQQPH0EOPSGU3CRBDQ&client_secret=SDZVEYKZBHKAS54ESJJZXOYTGKN2RKJHLUXQX5L4GLT2PS4U&v=20180417"
+
+    //ajax call for separate photos endpoint for each item in previous ajax call
+    $.ajax(FOURSQUARE_PHOTO_URL, {
+        data: {
+            limit: 1,
+        },
+        dataType: 'json',
+        type: 'GET',
+        async: false,
+        success: function(data){
+                //console.log(data);
+                myPhotoResult = data;
+                const venuePhoto = "https://igx.4sqi.net/img/general/width960" + data.response.photos.items[0].suffix;
+                //console.log(venuePhoto);
+        }
+    })
+
+    let venuePhoto = "https://igx.4sqi.net/img/general/width960" + myPhotoResult.response.photos.items[0].suffix;
+    let venueName = result.venue.name;
+    //console.log(venueName);
+    venueName = venueName.replace(/["'()-]/g,"");
+    venueName = venueName.replace(/&-/g,' ').trim();
+    //console.log(venueName);
         return `
             <div class="result col-3">
-                <div class="result-image" style="background-image: url(https://igx.4sqi.net/img/general/width960${result.venue.photos.groups[0].items[0].suffix})" ;>
+                <div class="result-image" style="background-image: url(https://igx.4sqi.net/img/general/width960${myPhotoResult.response.photos.items[0].suffix})" ;>
                 </div>
                 <div class="result-description">
-                    <h2 class="result-name">${result.venue.name}</h2>
+                    <h2 class="result-name">${venueName}</h2>
                     <span class="icon">
                         <img src="${result.venue.categories[0].icon.prefix}bg_32${result.venue.categories[0].icon.suffix}" alt="category-icon">
                     </span>
@@ -107,8 +131,6 @@ function displayResults(result) {
             </div>
         `;
     } 
-}
-
 
 function searchLocation() {
     $('.search-form').submit(function (event) {
@@ -130,7 +152,5 @@ function activatePlacesSearch() {
     let input = document.getElementById('search-term');
     let autocomplete = new google.maps.places.Autocomplete(input, options);
 }
-
-
 
 $(searchLocation);

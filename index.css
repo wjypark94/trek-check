@@ -40,10 +40,16 @@ header {
     width: 80%
 }
 
+.credit-info{
+    color: steelblue;
+    font-size: 14px;
+}
+
 h1.logo {
     font-family: 'Shadows Into Light', sans-serif;
     font-size: 60px;
-    margin-bottom: 15px;
+    margin-bottom: -5px;
+    margin-top: 25px;
 }
 
 strong {
@@ -52,6 +58,7 @@ strong {
 
 p {
     font-family: 'Homenaje';
+    font-size: 17px;
 }
 
 form {
@@ -75,7 +82,7 @@ form button {
     margin-left: 10px;
     box-shadow: 0 0 5px black;
     font-size: 21px;
-
+    cursor: pointer;
 }
 
 form a {
@@ -83,7 +90,10 @@ form a {
     text-decoration: none;
 }
 
-
+.result-name{
+    text-align:justify;
+    word-spacing:-2px;
+}
 
 /*** weather result display ***/
 .weather-results {
@@ -157,8 +167,8 @@ div .result-image {
 .result-description h2 {
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
-    font-size: 1.3em;
-    ;
+    text-align:justify;
+    word-spacing:-2px;
 }
 
 #foursquare-results span {
@@ -177,17 +187,29 @@ div .result-image {
 .hike-directions {
     font-family: 'BenchNine';
     font-size: 1.3em;
+    color: black;
 }
 
-
+.hike-directions:hover{
+    color: steelblue;
+}
 /*** responsive design ***/
 
-.row {
+.foursquare-results {
     padding-left: 20px;
     margin: 0 auto;
     padding-right: 20px;
     max-width: 1000px;
 }
+
+.row {
+    padding-left: 20px;
+    margin: 0 auto;
+    padding-right: 20px;
+    max-width: 700px;
+}
+
+
 
 @media screen and (min-width: 640px) {
     .col-3 {
@@ -208,9 +230,14 @@ div .result-image {
 
 footer {
     background-color: rgba(255, 255, 255, 0.7);
-    height: 125px;
-    padding: 20px;
-    margin-top: 20px;
+    height: 130px;
+    padding: 40px;
+    padding-top: -20px;
+    margin-top: 10px;
+    padding-bottom: 10px;
     box-shadow: 0 0 10px black;
 }
 
+.footer-icon{
+   width: 5%;
+}
