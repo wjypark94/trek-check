@@ -1,4 +1,4 @@
-const FOURSQUARE_SEARCH_URL = "https://api.foursquare.com/v2/venues/explore?&client_id=FPRD2S2RFIB4QLBNBBHNAMLYOUF2AZSZ21ZK53QYASWCRJ1Z&client_secret=FEFA44EG0YDZ0XKA1UWX5ZWLZJLE30E2GYRLGB44PKE5KZ0E&v=20170915"
+const FOURSQUARE_SEARCH_URL = "https://api.foursquare.com/v2/venues/explore?&client_id=4EV4L2TYGITPLJCO4NYMHAXT1VU5ORATYF0DYR3OKO4O0LEF&client_secret=O0MRRAG1BNMQBID4LOIFNRD1XANUCP0J0TV2QTJAYNW1M5RR&v=20170915"
 const WEATHER_SEARCH_URL = "https://api.openweathermap.org/data/2.5/weather?id=524901&APPID=a2d9429fad39b9f998a23d74c41056cc"
 
 //press on submit button and scroll to results
@@ -56,7 +56,7 @@ function getDataFromFourApi() {
             data: {
                 near: city,
                 venuePhotos: 1,
-                limit: 15,
+                limit: 12,
                 query: 'trail',
             },
             dataType: 'json',
@@ -87,7 +87,7 @@ function displayResults(result) {
 console.log(result);
     let hikeLocation = result.venue.name;
     let hikeLink = `https://www.google.com/maps/search/${hikeLocation} + ${result.venue.location.formattedAddress[1]}`;
-    const FOURSQUARE_PHOTO_URL = "https://api.foursquare.com/v2/venues/" + result.venue.id + "/photos?&client_id=AAX334AWRMDG2K3UNKXSXT5REBQZH3EQQPH0EOPSGU3CRBDQ&client_secret=SDZVEYKZBHKAS54ESJJZXOYTGKN2RKJHLUXQX5L4GLT2PS4U&v=20180417"
+    const FOURSQUARE_PHOTO_URL = "https://api.foursquare.com/v2/venues/" + result.venue.id + "/photos?&client_id=4EV4L2TYGITPLJCO4NYMHAXT1VU5ORATYF0DYR3OKO4O0LEF&client_secret=O0MRRAG1BNMQBID4LOIFNRD1XANUCP0J0TV2QTJAYNW1M5RR&v=20180417"
 
     //ajax call for separate photos endpoint for each item in previous ajax call
     $.ajax(FOURSQUARE_PHOTO_URL, {
